@@ -3,7 +3,8 @@ resource "aws_instance" "main" {
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.main.id
   key_name      = "vockey"
-  security_groups = [aws_security_group.main.name]
+  vpc_security_group_ids = [aws_security_group.main.id]  
+
 
   tags = {
     Name = "terraform-ec2"
